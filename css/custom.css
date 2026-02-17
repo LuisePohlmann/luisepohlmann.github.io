@@ -1,6 +1,6 @@
 :root {
-  --link: #36F7B3;
-  --accent: #08C985;
+  --link: #62F8C4;
+  --accent: #62F8C4;
   --subheader-color: #05714B;
   --header-color: #023020;
   --text-black: #000000;
@@ -43,7 +43,7 @@ html{
     justify-content: space-between;
     align-items: center;
     padding: 0rem 2rem;
-    background-color: var(--subheader-color); /* change to your brand color */
+    background-color: var(--subheader-color);
     color: #fff;
   }
 
@@ -179,7 +179,6 @@ html{
     
     .work-item {
       padding-bottom: 1rem;
-      border-bottom: 1px solid var(--text-gray);
     }
 
     .subtitle {
@@ -198,6 +197,15 @@ html{
       color: var(--subheader-color);
       margin-bottom: 0;
       margin-top: 1rem;
+    }
+    
+    h3.experience {
+      color: lightgrey;
+      font-weight: bold;
+      margin-bottom: 0rem;
+      margin-top: 1rem;
+      background-color: #023020;
+      padding: 0.2rem 1rem;
     }
 
     .year {
@@ -248,9 +256,48 @@ html{
       color: var(--subheader-color);
       margin-bottom: 0.5rem;
     }
-    
+    /* Row holding year + tags */
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    /* Tag container */
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Base tag style */
+    .tag {
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Color variations */
+    .tag.humanities {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+
+    .tag.tool {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .tag.programming {
+      background: #dcfce7;
+      color: #166534;
+    }
+
     .contact-footer {
-      background: var(--accent);
+      background: var(--subheader-color);
       color: white;
       text-align: center;
       padding: 2rem;
@@ -267,12 +314,153 @@ html{
       text-decoration: underline;
     }
     
+
     @media (max-width: 768px) {
-      .about-content {
+      /* Make all grids single column */
+      .about-content,
+      .skills-education,
+      .projects-grid {
         grid-template-columns: 1fr;
       }
-      
-      .header h1 {
-        font-size: 1.8rem;
+
+      /* Stack navbar items vertically */
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
       }
+        /* Center the contact icons horizontally */
+        .contact-icons {
+          display: flex;          
+          justify-content: center; 
+          width: 100%;             
+          margin: 0rem;        
+        }
+
+        /* Optional: smaller icons on mobile */
+        .contact-icons a {
+          font-size: 1.2rem;
+          padding: 0rem;
+          text-align: center;
+        }
+
+      .navbar .nav-links {
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 0rem;
+      }
+
+      /* Stack title rows (like job title + year) */
+      .title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+
+      /* Stack meta (year + tags in projects) */
+      .meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      /* Remove left margin in about text (prevents weird spacing on mobile) */
+      .about-text p {
+        margin-left: 0;
+      }
+
+      .project-image {
+        height: auto;
+      }      
+
+      /* Base text */
+      body {
+        font-size: 0.7rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      h3 {
+        font-size: 1.05rem;
+      }
+
+      .subtitle,
+      .year {
+        font-size: 0.8rem;
+      }
+
+      .tag {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+      }
+
+      .navbar .nav-links a {
+        font-size: 0.7rem;
+      }
+
+       /* Make container fully responsive */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem; /* minimal padding */
+    margin: 0 auto;
+  }
+
+  /* Make section boxes responsive */
+  #education-experience,
+  #projects,
+  #skills,
+  #about {
+    padding: 0.8rem;
+    margin: 1rem 0;
+    width: 100%;      /* ensure they don’t overflow */
+    box-sizing: border-box;
+  }
+
+  /* Skills box */
+  .skills-content {
+    padding: 0.8rem;
+    width: 100%;      /* ensure it fits container */
+    box-sizing: border-box;
+  }
+
+  /* Project cards inside grid */
+  .projects-grid {
+    grid-template-columns: 1fr !important; /* force one column */
+  }
+
+  .project-card {
+    min-width: 0;     /* prevent min-width from pushing layout */
+  }
+
+  /* About text */
+  .about-text p {
+    margin-left: 0;
+  }
+
+  /* Images */
+  .about-image {
+    width: 65%;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Force box-sizing everywhere */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
     }
